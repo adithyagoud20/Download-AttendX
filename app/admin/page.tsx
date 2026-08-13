@@ -23,19 +23,19 @@ const tabs: { id: Tab; label: string }[] = [
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { session, loading, signOut } = useSession();
+  const { session, isAdmin, loading, signOut } = useSession();
   const [tab, setTab] = useState<Tab>('config');
 
   useEffect(() => {
-    if (!loading && !session) router.replace('/admin/login');
-  }, [loading, router, session]);
+    if (!loading && (!session || !isAdmin)) router.replace('/admin/login');
+  }, [isAdmin, loading, router, session]);
 
   const handleSignOut = async () => {
     await signOut();
     router.replace('/admin/login');
   };
 
-  if (loading) {
+  if (loading || (session && isAdmin === null)) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-sm text-slate-400">Loading…</p>
@@ -43,7 +43,7 @@ export default function AdminDashboard() {
     );
   }
 
-  if (!session) {
+  if (!session || !isAdmin) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-sm text-slate-400">Redirecting to login…</p>
