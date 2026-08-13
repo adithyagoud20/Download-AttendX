@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" fill="none">
+  <defs>
+    <linearGradient id="ax-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="12" width="56" height="56" rx="16" fill="url(#ax-grad)"/>
+  <path d="M18 58V26h6.8l7.2 12.4L39.2 26H46v32h-6.4V36.8l-7.2 12.2-7.2-12.2V58H18z" fill="white"/>
+  <circle cx="50" cy="20" r="5" fill="#10b981"/>
+  <text x="74" y="52" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#0f172a" letter-spacing="-0.5">AttendX</text>
+</svg>
