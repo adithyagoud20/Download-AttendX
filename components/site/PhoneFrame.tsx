@@ -1,4 +1,4 @@
-import { CalendarCheck } from 'lucide-react';
+
 
 type PhoneFrameProps = {
   imageUrl?: string;
@@ -30,9 +30,8 @@ export default function PhoneFrame({
             <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white p-6 text-center">
               {children ?? (
                 <>
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500 text-white shadow-lg shadow-blue-500/30">
-                    <CalendarCheck className="h-7 w-7" />
-                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/attendx-icon.svg" alt="AttendX" className="mb-4 h-14 w-14" />
                   <p className="text-sm font-semibold text-slate-700">
                     {label || 'AttendX'}
                   </p>

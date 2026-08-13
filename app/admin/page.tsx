@@ -9,7 +9,7 @@ import FeaturesEditor from '@/components/admin/FeaturesEditor';
 import ScreenshotsEditor from '@/components/admin/ScreenshotsEditor';
 import InstallationEditor from '@/components/admin/InstallationEditor';
 import FaqEditor from '@/components/admin/FaqEditor';
-import { CalendarCheck, LogOut, ExternalLink } from 'lucide-react';
+import { LogOut, ExternalLink } from 'lucide-react';
 
 type Tab = 'config' | 'features' | 'screenshots' | 'install' | 'faq';
 
@@ -56,9 +56,8 @@ export default function AdminDashboard() {
       <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
           <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500 text-white">
-              <CalendarCheck className="h-5 w-5" />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/attendx-icon.svg" alt="AttendX" className="h-9 w-9" />
             <div>
               <h1 className="text-sm font-bold text-slate-900">AttendX Admin</h1>
               <p className="text-xs text-slate-500">{session.user.email}</p>

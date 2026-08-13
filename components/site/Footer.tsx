@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ShieldCheck, CalendarCheck, Download } from 'lucide-react';
+import { ShieldCheck, Download } from 'lucide-react';
 
 type FooterProps = {
   appName: string;
@@ -18,9 +18,8 @@ export default function Footer({ appName, tagline, apkUrl }: FooterProps) {
       <div className="container-attendx py-10">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 text-white">
-              <CalendarCheck className="h-4 w-4" />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/attendx-icon.svg" alt={appName} className="h-8 w-8" />
             <div>
               <p className="text-sm font-bold text-slate-900">{appName}</p>
               <p className="text-xs text-slate-500">{tagline}</p>

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { CalendarCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type NavbarProps = {
@@ -65,12 +64,12 @@ export default function Navbar({ appName, apkUrl }: NavbarProps) {
           className="flex items-center gap-2 select-none"
           aria-label={appName}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500 text-white shadow-sm">
-            <CalendarCheck className="h-5 w-5" />
-          </span>
-          <span className="text-lg font-bold tracking-tight text-slate-900">
-            {appName}
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/attendx-logo.svg"
+            alt={appName}
+            className="h-8 w-auto"
+          />
         </button>
 
         <div className="hidden md:flex items-center gap-7">

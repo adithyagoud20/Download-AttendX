@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
-import { CalendarCheck, Loader2, ArrowLeft } from 'lucide-react';
+import { Loader as Loader2, ArrowLeft } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -52,9 +52,8 @@ export default function AdminLoginPage() {
 
         <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
           <div className="mb-6 flex items-center gap-2.5">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 text-white">
-              <CalendarCheck className="h-5 w-5" />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/attendx-icon.svg" alt="AttendX" className="h-10 w-10" />
             <div>
               <h1 className="text-lg font-bold text-slate-900">AttendX Admin</h1>
               <p className="text-xs text-slate-500">Sign in to manage content</p>
