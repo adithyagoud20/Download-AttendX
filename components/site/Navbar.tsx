@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { CalendarCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -24,15 +23,22 @@ export default function Navbar({ appName, apkUrl }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (clickTimer.current) clearTimeout(clickTimer.current);
+    };
+  }, []);
+
   const handleLogoClick = () => {
     clickCount.current += 1;
     if (clickTimer.current) clearTimeout(clickTimer.current);
     clickTimer.current = setTimeout(() => {
       clickCount.current = 0;
-    }, 700);
+    }, 1500);
     if (clickCount.current >= 5) {
       clickCount.current = 0;
-      router.push('/admin');
+      if (clickTimer.current) clearTimeout(clickTimer.current);
+      router.push('/admin/login');
     }
   };
 
@@ -54,6 +60,7 @@ export default function Navbar({ appName, apkUrl }: NavbarProps) {
     >
       <nav className="container-attendx flex items-center justify-between h-16">
         <button
+          type="button"
           onClick={handleLogoClick}
           className="flex items-center gap-2 select-none"
           aria-label={appName}

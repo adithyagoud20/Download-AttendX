@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useSession } from '@/lib/use-session';
 import ConfigEditor from '@/components/admin/ConfigEditor';
@@ -21,8 +22,18 @@ const tabs: { id: Tab; label: string }[] = [
 ];
 
 export default function AdminDashboard() {
+  const router = useRouter();
   const { session, loading, signOut } = useSession();
   const [tab, setTab] = useState<Tab>('config');
+
+  useEffect(() => {
+    if (!loading && !session) router.replace('/admin/login');
+  }, [loading, router, session]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.replace('/admin/login');
+  };
 
   if (loading) {
     return (
@@ -63,7 +74,7 @@ export default function AdminDashboard() {
               <span className="hidden sm:inline">View site</span>
             </Link>
             <button
-              onClick={signOut}
+              onClick={handleSignOut}
               className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               <LogOut className="h-4 w-4" />

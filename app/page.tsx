@@ -7,7 +7,6 @@ import VideoSection from '@/components/site/VideoSection';
 import DownloadCTA from '@/components/site/DownloadCTA';
 import InstallationGuide from '@/components/site/InstallationGuide';
 import FAQ from '@/components/site/FAQ';
-import LogoDownload from '@/components/site/LogoDownload';
 import Footer from '@/components/site/Footer';
 import { fetchContentServer } from '@/lib/content-server';
 
@@ -29,7 +28,6 @@ export default async function Home() {
         <DownloadCTA config={config} />
         <InstallationGuide steps={content.installationSteps} />
         <FAQ faqs={content.faqs} />
-        <LogoDownload />
       </main>
       <Footer appName={config.app_name} tagline={config.tagline} apkUrl={config.apk_url} />
     </>
