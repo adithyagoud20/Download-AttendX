@@ -29,7 +29,11 @@ export default function AdminLoginPage() {
     });
     setLoading(false);
     if (error) {
-      setError('Invalid email or password.');
+      setError(
+        error.message.toLowerCase().includes('confirm')
+          ? 'This email has not been confirmed. Confirm the user in Supabase Authentication, then try again.'
+          : 'Invalid email or password. Check the credentials in Supabase Authentication.'
+      );
       return;
     }
     router.replace('/admin');
